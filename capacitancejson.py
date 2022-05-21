@@ -84,7 +84,7 @@ def calculate_capacitance(data):
         index = index + 1
 
     capacitance_dict = update_capacitance_node_labels(tG)
-    draw_graph(tG, 111, 'original_graph')
+    # draw_graph(tG, 111, 'original_graph')
 
     def combine_capacitance(c1, c2):
         if(c1 == 0 or c2 == 0):
@@ -167,7 +167,7 @@ def calculate_capacitance(data):
             remove_parallel(new_graph)
             fcapacitance_dict = update_capacitance_node_labels(new_graph)
 
-            draw_graph(new_graph, 111, title)
+            # draw_graph(new_graph, 111, title)
         return new_graph
 
     capacitance_dict = update_capacitance_node_labels(tG)
@@ -188,8 +188,8 @@ def calculate_capacitance(data):
         print(tG.out_degree(n1))
         if tG.out_degree(n1) > 0:
             recurse_mini_graph_create(tG, reducedGraph, n1)
-        draw_graph(reducedGraph, 111, "arbitrary_node_" +
-                   tG.nodes[n1]['node_name'])
+        # draw_graph(reducedGraph, 111, "arbitrary_node_" +
+                #    tG.nodes[n1]['node_name'])
         reducedGraph = reduce_graph(
             reducedGraph, 'arbitrary_node_reduction_' + tG.nodes[n1]['node_name'])
 
@@ -198,7 +198,7 @@ def calculate_capacitance(data):
         return reducedGraph.nodes[nextnode]['capacitance']
 
     reducG = reduce_graph(tG, 'total_graph')
-    draw_graph(reducG, 111, 'final_reduce_total')
+    # draw_graph(reducG, 111, 'final_reduce_total')
 
     out_capacitance_graph = {}
     out_capacitance_graph_labels = {}
@@ -212,8 +212,8 @@ def calculate_capacitance(data):
             out_capacitance_graph[node] = 0
             out_capacitance_graph_labels[node] = f'{tG.nodes[node]["node_name"]}'
 
-    draw_graph(tG, 111, 'finalgraphwithalloutputcapacitances',
-               out_capacitance_graph_labels)
+    # draw_graph(tG, 111, 'finalgraphwithalloutputcapacitances',
+            #    out_capacitance_graph_labels)
     return out_capacitance_graph
     
 if __name__ == '__main__':
