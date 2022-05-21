@@ -14,7 +14,7 @@ from os import makedirs, path
   
 index = 0
 
-def calculate_capacitance(data):
+def calculate_capacitance(data, input=False):
     timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
     # print(data)
@@ -32,8 +32,12 @@ def calculate_capacitance(data):
             k, capacitance=v["inherent_capacitance"], node_name=v['name'])
         capacitance_dict[k] = f'{v["inherent_capacitance"]} {v["name"]}'
         for op in v['out_ports']:
-            tG.add_edge(get_node_from_port(
-                op['source']), get_node_from_port(op['target']), weight=1)
+            if input:
+                tG.add_edge(get_node_from_port(
+                    op['target']), get_node_from_port(op['source']), weight=1)
+            else:
+                tG.add_edge(get_node_from_port(
+                    op['source']), get_node_from_port(op['target']), weight=1)
     print("tessss")
     print(tG.nodes)
 

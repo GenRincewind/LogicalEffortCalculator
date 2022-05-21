@@ -26,3 +26,13 @@ def calculate_capacitance_route():
     return response
 
 
+@app.route('/calculate_capacitance_in',  methods=['POST'])
+def calculate_capacitance_in_route():
+    content = request.json
+    #return jsonify(dict(content))
+
+    data=calculate_capacitance(dict(content), True)
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
