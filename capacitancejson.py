@@ -1,5 +1,7 @@
 from functools import reduce
 import networkx as nx
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 import json
 import random
@@ -7,9 +9,7 @@ from datetime import datetime
 
 from errno import EEXIST
 from os import makedirs, path
-data = {}
-with open('testnetwork.json') as f:
-    data = json.load(f)
+
 
 
 index = 0
@@ -26,7 +26,7 @@ def calculate_capacitance(data):
     def get_node_from_port(p):
         return data['ports'][p]["parentNodeID"]
 
-    for k, v in reversed(data['nodes'].items()):
+    for k, v in reversed(list(data['nodes'].items())):
         print(k)
         tG.add_node(
             k, capacitance=v["inherent_capacitance"], node_name=v['name'])
@@ -185,7 +185,7 @@ def calculate_capacitance(data):
             for nextnode in nextnodes:
                 recurse_mini_graph_create(tG, new_graph, nextnode)
                 new_graph.add_edge(node, nextnode, weight=1)
-
+        print(tG.out_degree(n1))
         if tG.out_degree(n1) > 0:
             recurse_mini_graph_create(tG, reducedGraph, n1)
         draw_graph(reducedGraph, 111, "arbitrary_node_" +
@@ -199,10 +199,7 @@ def calculate_capacitance(data):
 
     reducG = reduce_graph(tG, 'total_graph')
     draw_graph(reducG, 111, 'final_reduce_total')
-    testnode = random.choice(list([k for k in tG.nodes]))
-    print(tG.nodes[testnode]['node_name'])
-    print('capacitance', arbitrary_node_capacitance_to_output(
-        tG, "6151e068-d4b4-4c09-be49-72559ab1d42f"))
+
     out_capacitance_graph = {}
     out_capacitance_graph_labels = {}
     for node in tG.nodes:
@@ -219,4 +216,8 @@ def calculate_capacitance(data):
                out_capacitance_graph_labels)
     return out_capacitance_graph
     
-calculate_capacitance(data)
+if __name__ == '__main__':
+    data = {}
+    with open('testnetworknewformat.json') as f:
+        data = json.load(f)
+    calculate_capacitance(data)

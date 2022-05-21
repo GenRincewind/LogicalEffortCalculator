@@ -1,0 +1,130 @@
+{
+    "id": "006bc43c-6b3f-452e-aaef-bcc7f4a77ff7",
+    "offsetX": 0,
+    "offsetY": 0,
+    "zoom": 100,
+    "gridSize": 0,
+    "layers": [
+        {
+            "id": "e19442eb-2f24-4f41-a033-56f2a19bfd4a",
+            "type": "diagram-links",
+            "isSvg": true,
+            "transformed": true,
+            "models": {
+                "b2b3729f-4982-4173-b7b0-b5f2c72d014f": {
+                    "id": "b2b3729f-4982-4173-b7b0-b5f2c72d014f",
+                    "type": "default",
+                    "source": "8161b9ed-8305-442f-a292-1686d8869b5f",
+                    "sourcePort": "dae03025-6f15-434b-a14d-84a5149a6bee",
+                    "target": "5834efd4-c4f1-4f60-85a8-332e3e2f5bcb",
+                    "targetPort": "b77ff25d-2df7-4e31-a71f-27778a92bd57",
+                    "points": [
+                        {
+                            "id": "a6d7d6f4-897a-4713-8f16-0f84860218b4",
+                            "type": "point",
+                            "x": 180.765625,
+                            "y": 154.5
+                        },
+                        {
+                            "id": "9b19c6da-257e-4f58-ab94-6d91c203ed3e",
+                            "type": "point",
+                            "x": 409.5,
+                            "y": 154.5
+                        }
+                    ],
+                    "labels": [],
+                    "width": 3,
+                    "color": "gray",
+                    "curvyness": 50,
+                    "selectedColor": "rgb(0,192,255)"
+                }
+            }
+        },
+        {
+            "id": "2d8d92be-05ab-4c3c-8443-97db80752c8a",
+            "type": "diagram-nodes",
+            "isSvg": false,
+            "transformed": true,
+            "models": {
+                "8161b9ed-8305-442f-a292-1686d8869b5f": {
+                    "id": "8161b9ed-8305-442f-a292-1686d8869b5f",
+                    "type": "ts-custom-node",
+                    "x": 100,
+                    "y": 100,
+                    "ports": [
+                        {
+                            "id": "dae03025-6f15-434b-a14d-84a5149a6bee",
+                            "type": "default",
+                            "x": 173.265625,
+                            "y": 147,
+                            "name": "Out",
+                            "alignment": "right",
+                            "parentNode": "8161b9ed-8305-442f-a292-1686d8869b5f",
+                            "links": [
+                                "b2b3729f-4982-4173-b7b0-b5f2c72d014f"
+                            ],
+                            "in": false,
+                            "label": "Out"
+                        }
+                    ],
+                    "name": "Input Source 1",
+                    "color": "rgb(0,192,255)",
+                    "options": {
+                        "id": "8161b9ed-8305-442f-a292-1686d8869b5f",
+                        "type": "ts-custom-node",
+                        "name": "Input Source 1",
+                        "color": "rgb(0,192,255)",
+                        "logicaleffort": 1,
+                        "electricaleffort": 10,
+                        "parasiticapacitance": 10,
+                        "outputcapacitance": 10
+                    },
+                    "logicaleffort": 1,
+                    "portsInOrder": [],
+                    "portsOutOrder": [
+                        "dae03025-6f15-434b-a14d-84a5149a6bee"
+                    ]
+                },
+                "5834efd4-c4f1-4f60-85a8-332e3e2f5bcb": {
+                    "id": "5834efd4-c4f1-4f60-85a8-332e3e2f5bcb",
+                    "type": "ts-custom-node",
+                    "x": 400,
+                    "y": 100,
+                    "ports": [
+                        {
+                            "id": "b77ff25d-2df7-4e31-a71f-27778a92bd57",
+                            "type": "default",
+                            "x": 402,
+                            "y": 147,
+                            "name": "In",
+                            "alignment": "left",
+                            "parentNode": "5834efd4-c4f1-4f60-85a8-332e3e2f5bcb",
+                            "links": [
+                                "b2b3729f-4982-4173-b7b0-b5f2c72d014f"
+                            ],
+                            "in": true,
+                            "label": "In"
+                        }
+                    ],
+                    "name": "Output Source 2",
+                    "color": "rgb(192,255,0)",
+                    "options": {
+                        "id": "5834efd4-c4f1-4f60-85a8-332e3e2f5bcb",
+                        "type": "ts-custom-node",
+                        "name": "Output Source 2",
+                        "color": "rgb(192,255,0)",
+                        "logicaleffort": 1,
+                        "electricaleffort": 10,
+                        "parasiticapacitance": 10,
+                        "outputcapacitance": 0
+                    },
+                    "logicaleffort": 1,
+                    "portsInOrder": [
+                        "b77ff25d-2df7-4e31-a71f-27778a92bd57"
+                    ],
+                    "portsOutOrder": []
+                }
+            }
+        }
+    ]
+}
